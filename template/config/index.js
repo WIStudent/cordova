@@ -25,8 +25,8 @@ module.exports = {
     env: require('./dev.env'),
     port: 8080,
     autoOpenBrowser: false,
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsSubDirectory: process.env.TARGET === 'cordova' ? '' : 'static',
+    assetsPublicPath: process.env.TARGET === 'cordova' ? './' : '/',
     proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
