@@ -28,6 +28,7 @@ module.exports = merge(baseWebpackConfig, {
       inject: true,
       serviceWorkerLoader: `<script>${fs.readFileSync(path.join(__dirname,
         './service-worker-dev.js'), 'utf-8')}</script>`,
+      vueDevTools: `<script>\nwindow.__VUE_DEVTOOLS_HOST__ = '${config.dev.vueDevtoolsHost}'\nwindow.__VUE_DEVTOOLS_PORT__ = ${config.dev.vueDevtoolsPort}\n</script>\n<script src="${config.dev.vueDevtoolsHost}:${config.dev.vueDevtoolsPort}"></script>`
     }),
     new FriendlyErrorsPlugin()
   ]
